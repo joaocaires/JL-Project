@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Reveal } from "@/components/Reveal";
 import hero from "@/assets/p4.jpg";
 import p1 from "@/assets/p1.jpg";
 import p3 from "@/assets/p3.jpg";
 import p5 from "@/assets/p5.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
