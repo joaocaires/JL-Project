@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Reveal } from "@/components/Reveal";
 import hero from "@/assets/p4.jpg";
 import p1 from "@/assets/p1.jpg";
 import p3 from "@/assets/p3.jpg";
 import p5 from "@/assets/p5.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -106,29 +108,50 @@ function Home() {
         <div className="rule-hairline mt-16 w-40" />
       </section>
 
-      <section className="relative mx-auto max-w-6xl px-6 py-24">
-        <div className="mx-auto mb-20 max-w-xl text-center">
+      <section className="relative mx-auto max-w-5xl px-6 pb-24">
+
+        <Reveal>
+          <h2 className="font-display text-3xl italic text-muted-foreground">Por onde começar</h2>
+        </Reveal>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {cards.map((c, i) => (
+            <Reveal key={c.to} delay={i * 120} className={c.offset}>
+              <Link
+                to={c.to}
+                className="group relative block h-full rounded-2xl border border-border/60 bg-card/40 p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[var(--shadow-ember)]"
+              >
+                <span className="font-display text-xs tracking-[0.4em] text-accent">{c.n}</span>
+                <h3 className="mt-6 font-display text-2xl">{c.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.text}</p>
+                <span className="mt-8 inline-block text-xs uppercase tracking-[0.3em] text-muted-foreground transition-colors group-hover:text-accent-foreground">
+                  abrir →
+                </span>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="relative mx-auto max-w-6xl px-6 py-24 pb-32">
+        <Reveal className="mx-auto mb-20 max-w-xl text-center">
           <p className="text-[0.7rem] uppercase tracking-[0.5em] text-muted-foreground">nossa história</p>
           <h2 className="mt-4 font-display text-3xl italic sm:text-4xl">
             Alguns capítulos ainda estão sendo escritos
           </h2>
-        </div>
+        </Reveal>
 
         <div className="space-y-28">
           {storySections.map((s) => {
             const imageSide = s.layout === "left" ? "md:order-1" : "md:order-2";
             const textSide = s.layout === "left" ? "md:order-2 md:pl-12" : "md:order-1 md:pr-12";
             return (
-              <article
-                key={s.id}
-                className="grid items-center gap-10 md:grid-cols-2"
-              >
+              <Reveal as="article" key={s.id} className="grid items-center gap-10 md:grid-cols-2">
                 <div className={`group relative ${imageSide}`}>
-                  <div className="absolute -inset-3 rounded-sm bg-gradient-to-br from-primary/20 to-accent/10 opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100" />
+                  <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/10 opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100" />
                   <img
                     src={s.src}
                     alt={s.alt}
-                    className="relative w-full rounded-sm object-cover shadow-[var(--shadow-ember)] transition-transform duration-700 group-hover:scale-[1.02]"
+                    className="relative w-full rounded-2xl object-cover shadow-[var(--shadow-ember)] transition-transform duration-700 group-hover:scale-[1.02]"
                     style={{ aspectRatio: "4/5" }}
                     loading="lazy"
                   />
@@ -141,32 +164,13 @@ function Home() {
                   </p>
                   <div className="rule-hairline mt-8 w-24" />
                 </div>
-              </article>
+              </Reveal>
             );
           })}
-        </div>
-      </section>
-
-      <section className="relative mx-auto max-w-5xl px-6 pb-32">
-        <h2 className="font-display text-3xl italic text-muted-foreground">Por onde começar</h2>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {cards.map((c) => (
-            <Link
-              key={c.to}
-              to={c.to}
-              className={`group relative block border border-border/60 bg-card/40 p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[var(--shadow-ember)] ${c.offset}`}
-            >
-              <span className="font-display text-xs tracking-[0.4em] text-accent">{c.n}</span>
-              <h3 className="mt-6 font-display text-2xl">{c.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.text}</p>
-              <span className="mt-8 inline-block text-xs uppercase tracking-[0.3em] text-muted-foreground transition-colors group-hover:text-accent-foreground">
-                abrir →
-              </span>
-            </Link>
-          ))}
         </div>
       </section>
     </main>
   );
 }
+
 

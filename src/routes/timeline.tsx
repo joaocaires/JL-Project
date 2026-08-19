@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { CalendarDays } from "lucide-react";
 import { timeline } from "@/lib/memories";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/timeline")({
   head: () => ({
@@ -21,43 +23,69 @@ export const Route = createFileRoute("/timeline")({
 
 function Timeline() {
   return (
-    <main className="relative min-h-screen px-6 py-24">
+    <main className="relative min-h-screen overflow-hidden px-6 py-24">
       <div className="veil pointer-events-none absolute inset-0 opacity-40" />
-      <header className="relative mx-auto max-w-4xl">
+
+      <header className="relative mx-auto max-w-3xl text-center">
         <h1 className="font-display text-5xl sm:text-6xl">
-          Nossa <span className="text-ember italic">linha do tempo</span>
+          Timeline
+          <span className="text-ember block italic">do Nosso Amor</span>
         </h1>
-        <p className="mt-4 max-w-md text-sm text-muted-foreground">
-          Tudo que aconteceu, na ordem em que o coração registrou.
+        <p className="mt-5 text-sm text-muted-foreground">
+          Os marcos que escreveram nossa história, um capítulo por vez
         </p>
       </header>
 
-      <ol className="relative mx-auto mt-20 max-w-4xl border-l border-border/70 pl-8 sm:pl-14">
-        {timeline.map((e, i) => (
-          <li key={e.date} className={`relative pb-20 ${i % 2 ? "sm:ml-16" : ""}`}>
-            <span className="absolute -left-[2.35rem] top-3 h-3 w-3 rotate-45 border border-accent bg-primary sm:-left-[3.85rem]" />
-            <p className="font-display text-xs uppercase tracking-[0.4em] text-accent-foreground">
-              {e.date}
-            </p>
-            <div className="mt-5 grid gap-6 sm:grid-cols-[220px_1fr] sm:items-start">
-              <img
-                src={e.src}
-                alt={e.title}
-                loading="lazy"
-                width={e.width}
-                height={e.height}
-                className="h-56 w-full border border-border/60 object-cover opacity-85 transition-opacity duration-500 hover:opacity-100"
-              />
-              <div>
-                <h2 className="font-display text-3xl">{e.title}</h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {e.description}
-                </p>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ol>
+      <div className="relative mx-auto mt-24 max-w-5xl">
+        {/* linha central */}
+        <span className="pointer-events-none absolute left-6 top-0 h-full w-px bg-gradient-to-b from-transparent via-accent/70 to-transparent md:left-1/2 md:-translate-x-1/2" />
+        <span className="pointer-events-none absolute left-6 top-0 h-2 w-2 -translate-x-1/2 rounded-full border border-accent bg-background md:left-1/2" />
+
+        <ol className="relative space-y-16">
+          {timeline.map((e, i) => {
+            const right = i % 2 === 1;
+            return (
+              <Reveal
+                as="li"
+                key={e.date}
+                delay={80}
+                className={`relative flex md:items-center ${
+                  right ? "md:justify-end" : "md:justify-start"
+                }`}
+              >
+                {/* marcador */}
+                <span className="absolute left-6 top-8 z-10 flex h-7 w-7 -translate-x-1/2 items-center justify-center rounded-full bg-background shadow-[0_0_24px_6px_color-mix(in_oklab,var(--accent)_35%,transparent)] md:left-1/2">
+                  <span className="h-3.5 w-3.5 rounded-full border-2 border-accent" />
+                </span>
+
+                <article
+                  className={`ml-14 w-full rounded-3xl border border-border/50 bg-card/50 p-7 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-accent hover:shadow-[var(--shadow-ember)] md:ml-0 md:w-[calc(50%-3rem)] ${
+                    right ? "md:ml-12" : "md:mr-12"
+                  }`}
+                >
+                  <p className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-primary/20 px-3 py-1 text-[0.65rem] uppercase tracking-[0.25em] text-accent-foreground">
+                    <CalendarDays className="h-3.5 w-3.5" />
+                    {e.date}
+                  </p>
+                  <h2 className="mt-5 font-display text-3xl">{e.title}</h2>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {e.description}
+                  </p>
+                  <img
+                    src={e.src}
+                    alt={e.title}
+                    loading="lazy"
+                    width={e.width}
+                    height={e.height}
+                    className="mt-6 h-64 w-full rounded-2xl border border-border/50 object-cover opacity-90 transition-opacity duration-500 hover:opacity-100"
+                  />
+                </article>
+              </Reveal>
+            );
+          })}
+        </ol>
+      </div>
     </main>
   );
 }
+
