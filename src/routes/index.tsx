@@ -108,8 +108,8 @@ function Home() {
         <div className="rule-hairline mt-16 w-40" />
       </section>
 
-      <section className="relative mx-auto max-w-6xl px-6 py-24">
       <section className="relative mx-auto max-w-5xl px-6 pb-24">
+
         <Reveal>
           <h2 className="font-display text-3xl italic text-muted-foreground">Por onde começar</h2>
         </Reveal>
