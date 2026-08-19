@@ -63,44 +63,44 @@
 
 :root {
   --radius: 0.25rem;
-  --background: oklch(0 0 0);
-  --foreground: oklch(0.95 0.012 20);
-  --card: oklch(0.14 0.032 18);
+  --background: oklch(0.18 0.03 20);
+  --foreground: oklch(0.93 0.015 20);
+  --card: oklch(0.25 0.04 18);
   --card-foreground: oklch(0.95 0.012 20);
-  --popover: oklch(0.11 0.028 18);
+  --popover: oklch(0.21 0.035 18);
   --popover-foreground: oklch(0.95 0.012 20);
   --primary: oklch(0.36 0.13 12);
   --primary-foreground: oklch(0.97 0.008 20);
-  --secondary: oklch(0.18 0.04 20);
+  --secondary: oklch(0.28 0.045 20);
   --secondary-foreground: oklch(0.95 0.012 20);
-  --muted: oklch(0.16 0.028 20);
-  --muted-foreground: oklch(0.72 0.035 20);
+  --muted: oklch(0.27 0.04 20);
+  --muted-foreground: oklch(0.68 0.035 20);
   --accent: oklch(0.42 0.19 30);
   --accent-foreground: oklch(0.97 0.008 20);
   --destructive: oklch(0.55 0.22 27);
   --destructive-foreground: oklch(0.97 0.008 20);
-  --border: oklch(0.33 0.15 32);
-  --input: oklch(0.33 0.15 32);
+  --border: oklch(0.38 0.12 32);
+  --input: oklch(0.38 0.12 32);
   --ring: oklch(0.42 0.19 30);
   --chart-1: oklch(0.36 0.13 12);
   --chart-2: oklch(0.42 0.19 30);
   --chart-3: oklch(0.33 0.15 32);
   --chart-4: oklch(0.55 0.22 27);
   --chart-5: oklch(0.72 0.035 20);
-  --sidebar: oklch(0.08 0.02 18);
+  --sidebar: oklch(0.14 0.025 18);
   --sidebar-foreground: oklch(0.95 0.012 20);
   --sidebar-primary: oklch(0.36 0.13 12);
   --sidebar-primary-foreground: oklch(0.97 0.008 20);
-  --sidebar-accent: oklch(0.18 0.04 20);
+  --sidebar-accent: oklch(0.28 0.045 20);
   --sidebar-accent-foreground: oklch(0.95 0.012 20);
-  --sidebar-border: oklch(0.33 0.15 32);
+  --sidebar-border: oklch(0.38 0.12 32);
   --sidebar-ring: oklch(0.42 0.19 30);
 
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Karla", system-ui, sans-serif;
   --gradient-veil: radial-gradient(
     120% 90% at 70% 0%,
-    color-mix(in oklab, var(--primary) 45%, transparent),
+    color-mix(in oklab, var(--primary) 30%, transparent),
     transparent 65%
   );
   --gradient-ember: linear-gradient(120deg, var(--primary), var(--accent));
