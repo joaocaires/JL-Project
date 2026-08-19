@@ -117,13 +117,37 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+const navItems = [
+  { to: "/", label: "Início" },
+  { to: "/galeria", label: "Galeria" },
+  { to: "/retrospectiva", label: "Retrospectiva" },
+  { to: "/timeline", label: "Linha do tempo" },
+] as const;
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <nav className="fixed inset-x-0 top-0 z-40 flex flex-wrap items-center justify-center gap-6 border-b border-border/40 bg-background/70 px-6 py-4 backdrop-blur-md">
+        {navItems.map((item) => (
+          <Link
+            key={item.to}
+            to={item.to}
+            activeOptions={{ exact: item.to === "/" }}
+            activeProps={{ className: "text-accent-foreground" }}
+            inactiveProps={{ className: "text-muted-foreground" }}
+            className="text-[0.65rem] uppercase tracking-[0.35em] transition-colors hover:text-accent-foreground"
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
+      <div className="pt-14">
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </div>
     </QueryClientProvider>
   );
+
 }
