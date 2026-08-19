@@ -129,7 +129,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <nav className="fixed inset-x-0 top-0 z-40 flex flex-wrap items-center justify-center gap-6 border-b border-border/40 bg-background/70 px-6 py-4 backdrop-blur-md">
+      <nav className="fixed inset-x-0 top-0 z-40 flex flex-wrap items-center justify-center gap-6 border-b border-border/40 bg-background/85 px-6 py-4 backdrop-blur-md">
         {navItems.map((item) => (
           <Link
             key={item.to}

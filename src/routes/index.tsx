@@ -1,5 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/p4.jpg";
+import p1 from "@/assets/p1.jpg";
+import p3 from "@/assets/p3.jpg";
+import p5 from "@/assets/p5.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,6 +47,36 @@ const cards = [
   },
 ];
 
+const storySections = [
+  {
+    id: "como-tudo-comecou",
+    eyebrow: "Capítulo I",
+    title: "Como tudo começou",
+    text: "Escreva aqui sobre o começo. Pode ser o primeiro encontro, a primeira conversa, o primeiro olhar que demorou mais do que deveria.",
+    src: p1,
+    alt: "O primeiro olhar",
+    layout: "left" as const,
+  },
+  {
+    id: "o-que-a-gente-e",
+    eyebrow: "Capítulo II",
+    title: "O que a gente é",
+    text: "Aqui cabe falar sobre vocês. Os gestos pequenos, as rotinas que viraram sagradas, o jeito que o outro tem de fazer qualquer lugar parecer casa.",
+    src: p3,
+    alt: "Uma rosa sem motivo",
+    layout: "right" as const,
+  },
+  {
+    id: "o-que-vem-depois",
+    eyebrow: "Capítulo III",
+    title: "O que vem depois",
+    text: "Sonhos, planos, promessas. Use este espaço para descrever o futuro que vocês estão desenhando juntos, devagar, com as mãos dadas.",
+    src: p5,
+    alt: "A cidade inteira acesa",
+    layout: "left" as const,
+  },
+];
+
 function Home() {
   return (
     <main className="relative min-h-screen overflow-hidden">
@@ -54,7 +87,7 @@ function Home() {
         aria-hidden
         width={1200}
         height={1500}
-        className="pointer-events-none absolute -right-24 top-0 h-[110vh] w-auto object-cover opacity-25 mix-blend-screen"
+        className="pointer-events-none absolute -right-24 top-0 h-[110vh] w-auto object-cover opacity-15"
       />
 
       <section className="relative mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-6 text-center">
@@ -71,6 +104,47 @@ function Home() {
           consigo esquecer. Fique à vontade, tudo isso é seu.
         </p>
         <div className="rule-hairline mt-16 w-40" />
+      </section>
+
+      <section className="relative mx-auto max-w-6xl px-6 py-24">
+        <div className="mx-auto mb-20 max-w-xl text-center">
+          <p className="text-[0.7rem] uppercase tracking-[0.5em] text-muted-foreground">nossa história</p>
+          <h2 className="mt-4 font-display text-3xl italic sm:text-4xl">
+            Alguns capítulos ainda estão sendo escritos
+          </h2>
+        </div>
+
+        <div className="space-y-28">
+          {storySections.map((s) => {
+            const imageSide = s.layout === "left" ? "md:order-1" : "md:order-2";
+            const textSide = s.layout === "left" ? "md:order-2 md:pl-12" : "md:order-1 md:pr-12";
+            return (
+              <article
+                key={s.id}
+                className="grid items-center gap-10 md:grid-cols-2"
+              >
+                <div className={`group relative ${imageSide}`}>
+                  <div className="absolute -inset-3 rounded-sm bg-gradient-to-br from-primary/20 to-accent/10 opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100" />
+                  <img
+                    src={s.src}
+                    alt={s.alt}
+                    className="relative w-full rounded-sm object-cover shadow-[var(--shadow-ember)] transition-transform duration-700 group-hover:scale-[1.02]"
+                    style={{ aspectRatio: "4/5" }}
+                    loading="lazy"
+                  />
+                </div>
+                <div className={`${textSide}`}>
+                  <p className="text-[0.7rem] uppercase tracking-[0.4em] text-accent">{s.eyebrow}</p>
+                  <h3 className="mt-4 font-display text-3xl sm:text-4xl">{s.title}</h3>
+                  <p className="mt-6 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                    {s.text}
+                  </p>
+                  <div className="rule-hairline mt-8 w-24" />
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </section>
 
       <section className="relative mx-auto max-w-5xl px-6 pb-32">
@@ -95,3 +169,4 @@ function Home() {
     </main>
   );
 }
+
