@@ -4,6 +4,7 @@ import hero from "@/assets/p4.jpg";
 import p1 from "@/assets/p1.jpg";
 import p3 from "@/assets/p3.jpg";
 import p5 from "@/assets/p5.jpg";
+import p6 from "@/assets/p6.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -52,7 +53,7 @@ const storySections = [
   {
     id: "como-tudo-comecou",
     eyebrow: "Capítulo I",
-    title: "Como tudo começou",
+    title: "365 dias com você",
     text: "1 ano amor... não consigo acreditar que já passamos 365 dias juntos, rindo, chorando e lutando... lutando muito kkkkkkk mas sempre juntos e eu amo isso na gente ",
     src: p1,
     alt: "O primeiro olhar",
@@ -61,7 +62,7 @@ const storySections = [
   {
     id: "o-que-a-gente-e",
     eyebrow: "Capítulo II",
-    title: "O que a gente é",
+    title: "Sempre sonhei com você",
     text: "E pensando bem, ate que é fácil de acreditar nisso porque ao seu lado tudo fica mais leve, tranquilo e sinto uma paz inacreditável algo que nem nos meus melhores sonhos eu imaginaria e o tempo passa tão rápido.... Ainda lembro da gente conversando sobre qual musica iria usar pra assumirmos kkkkkkk sentados do banco da praça no horário de almoço (cansados em um nível inimaginável mas mesmo assim felizes por estarmos juntos)",
     src: p3,
     alt: "Uma rosa sem motivo",
@@ -70,11 +71,20 @@ const storySections = [
   {
     id: "o-que-vem-depois",
     eyebrow: "Capítulo III",
-    title: "O que vem depois",
+    title: "Nossa casa",
     text: "E vendo o quão incrível você é, me deu combustível para ser uma pessoa  melhor e buscar o melhor para nos dois (você lembra no começo do ano eu falando que ate o final nos íamos estar de carro kkkkkkkkk), e voltar a buscar coisas que antes eu já tinha desistido, e no fim Deus nos abençoou e estamos indo para pegar a nossa casa e se preparar para casar também....",
     src: p5,
     alt: "A cidade inteira acesa",
     layout: "left" as const,
+  },
+  {
+    id: "o-nosso-proximo-capitulo",
+    eyebrow: "Capítulo IV",
+    title: "Eu te amo ❤️",
+    text: "Sei que não sou uma pessoa facil, sou teimoso, não escuto muito e tambem to longe de estar no fisico perfeito também. As vezes fico pensando se seus pais iam gostar de mim e aprovar o nosso namoro também. Mas tento todo dia ser uma pessoa melhor para você minha princesa, ate porque eu te amo ❤️, enfim aproveite esse presente que eu fiz com tanto amor e carinho para você ❤️",
+    src: p6,
+    alt: "Mesa para dois",
+    layout: "right" as const,
   },
 ];
 
