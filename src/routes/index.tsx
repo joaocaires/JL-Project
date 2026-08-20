@@ -5,7 +5,6 @@ import p1 from "@/assets/p1.jpg";
 import p3 from "@/assets/p3.jpg";
 import p5 from "@/assets/p5.jpg";
 
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -97,19 +96,18 @@ function Home() {
           para você
         </p>
         <h1 className="animate-rise mt-8 font-display text-5xl leading-[1.05] sm:text-7xl">
-          Existe um lugar
-          <span className="text-ember block italic"> onde o tempo para</span>
-          e ele tem o seu nome.
+          Leticia
+          <span className="text-ember block italic">Meu único endereço é você</span>
+          minha casa não tem CEP, tem o seu CPF.
         </h1>
         <p className="animate-rise mt-8 max-w-xl text-balance text-sm leading-relaxed text-muted-foreground sm:text-base">
           Reuni aqui os pedaços da nossa história — as fotos, as músicas, as datas que eu não
-          consigo esquecer. Fique à vontade, tudo isso é seu.
+          consigo esquecer. Fique à vontade amor, tudo isso é seu.
         </p>
         <div className="rule-hairline mt-16 w-40" />
       </section>
 
       <section className="relative mx-auto max-w-5xl px-6 pb-24">
-
         <Reveal>
           <h2 className="font-display text-3xl italic text-muted-foreground">Por onde começar</h2>
         </Reveal>
@@ -134,9 +132,11 @@ function Home() {
 
       <section className="relative mx-auto max-w-6xl px-6 py-24 pb-32">
         <Reveal className="mx-auto mb-20 max-w-xl text-center">
-          <p className="text-[0.7rem] uppercase tracking-[0.5em] text-muted-foreground">nossa história</p>
+          <p className="text-[0.7rem] uppercase tracking-[0.5em] text-muted-foreground">
+            nossa história
+          </p>
           <h2 className="mt-4 font-display text-3xl italic sm:text-4xl">
-            Alguns capítulos ainda estão sendo escritos
+            Alguns capítulos que foram e ainda estão sendo escritos
           </h2>
         </Reveal>
 
@@ -157,7 +157,9 @@ function Home() {
                   />
                 </div>
                 <div className={`${textSide}`}>
-                  <p className="text-[0.7rem] uppercase tracking-[0.4em] text-accent">{s.eyebrow}</p>
+                  <p className="text-[0.7rem] uppercase tracking-[0.4em] text-accent">
+                    {s.eyebrow}
+                  </p>
                   <h3 className="mt-4 font-display text-3xl sm:text-4xl">{s.title}</h3>
                   <p className="mt-6 text-sm leading-relaxed text-muted-foreground sm:text-base">
                     {s.text}
@@ -172,5 +174,3 @@ function Home() {
     </main>
   );
 }
-
-
