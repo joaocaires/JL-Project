@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
-import hero from "@/assets/p4.jpg";
-import p1 from "@/assets/p1.jpg";
-import p3 from "@/assets/p3.jpg";
-import p5 from "@/assets/p5.jpg";
-import p6 from "@/assets/p6.jpg";
+import hero from "@/assets/WhatsApp Image 2026-08-26 at 21.00.07.jpeg";
+import p1 from "@/assets/WhatsApp Image 2026-08-26 at 21.00.04 (2).jpeg";
+import p3 from "@/assets/WhatsApp Image 2026-08-26 at 21.00.03.jpeg";
+import p5 from "@/assets/WhatsApp Image 2026-08-26 at 21.00.07 (1).jpeg";
+import p6 from "@/assets/WhatsApp Image 2026-08-26 at 21.00.06.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,10 +41,10 @@ const cards = [
     offset: "md:mt-16",
   },
   {
-    to: "/timeline" as const,
+    to: "/galeria" as const,
     n: "03",
-    title: "Linha do Tempo",
-    text: "As datas que mudaram tudo, uma depois da outra.",
+    title: "Abrir Galeria",
+    text: "Voltar para os instantes guardados em fotos e músicas.",
     offset: "md:mt-8",
   },
 ];
@@ -121,7 +121,7 @@ function Home() {
         <Reveal>
           <h2 className="font-display text-3xl italic text-muted-foreground">Por onde começar</h2>
         </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {cards.map((c, i) => (
             <Reveal key={c.to} delay={i * 120} className={c.offset}>
               <Link

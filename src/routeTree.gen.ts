@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as RetrospectivaRouteImport } from './routes/retrospectiva'
-import { Route as TimelineRouteImport } from './routes/timeline'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -29,44 +28,35 @@ const RetrospectivaRoute = RetrospectivaRouteImport.update({
   path: '/retrospectiva',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TimelineRoute = TimelineRouteImport.update({
-  id: '/timeline',
-  path: '/timeline',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/galeria': typeof GaleriaRoute
   '/retrospectiva': typeof RetrospectivaRoute
-  '/timeline': typeof TimelineRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/galeria': typeof GaleriaRoute
   '/retrospectiva': typeof RetrospectivaRoute
-  '/timeline': typeof TimelineRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/galeria': typeof GaleriaRoute
   '/retrospectiva': typeof RetrospectivaRoute
-  '/timeline': typeof TimelineRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/galeria' | '/retrospectiva' | '/timeline'
+  fullPaths: '/' | '/galeria' | '/retrospectiva'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/galeria' | '/retrospectiva' | '/timeline'
-  id: '__root__' | '/' | '/galeria' | '/retrospectiva' | '/timeline'
+  to: '/' | '/galeria' | '/retrospectiva'
+  id: '__root__' | '/' | '/galeria' | '/retrospectiva'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GaleriaRoute: typeof GaleriaRoute
   RetrospectivaRoute: typeof RetrospectivaRoute
-  TimelineRoute: typeof TimelineRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,13 +82,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RetrospectivaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/timeline': {
-      id: '/timeline'
-      path: '/timeline'
-      fullPath: '/timeline'
-      preLoaderRoute: typeof TimelineRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -106,7 +89,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GaleriaRoute: GaleriaRoute,
   RetrospectivaRoute: RetrospectivaRoute,
-  TimelineRoute: TimelineRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

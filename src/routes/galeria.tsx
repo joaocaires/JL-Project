@@ -33,7 +33,7 @@ function Galeria() {
   const [open, setOpen] = useState<Memory | null>(null);
 
   useEffect(() => {
-    if (open) playTone(open.tone);
+    if (open) playTone(open.audioSrc);
     else stopTone();
     return () => stopTone();
   }, [open]);
@@ -52,7 +52,7 @@ function Galeria() {
           Galeria <span className="text-ember italic">de nós</span>
         </h1>
         <p className="mt-4 max-w-md text-sm text-muted-foreground">
-          Toque em qualquer foto: ela abre grande e traz junto a música daquele dia.
+          Toque em qualquer foto: ela abre grande e traz junto um pequeno texto.
         </p>
       </header>
 

@@ -121,7 +121,6 @@ const navItems = [
   { to: "/", label: "Início" },
   { to: "/galeria", label: "Galeria" },
   { to: "/retrospectiva", label: "Retrospectiva" },
-  { to: "/timeline", label: "Linha do tempo" },
 ] as const;
 
 function RootComponent() {

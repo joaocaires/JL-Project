@@ -33,9 +33,9 @@ function Retrospectiva() {
   }, [i, playing]);
 
   useEffect(() => {
-    if (playing) playTone(slide.tone);
+    if (playing) playTone(slide.audioSrc);
     return () => stopTone();
-  }, [i, playing, slide.tone]);
+  }, [i, playing, slide.audioSrc]);
 
   return (
     <main className="relative flex min-h-screen flex-col overflow-hidden">
